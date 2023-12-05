@@ -83,12 +83,13 @@ if (isset($_POST['deleteFriend'])) {
 }
 
 $assetsQuery = $conn->prepare("
-    SELECT assetID, type, cost, availability 
+    SELECT assetname, `values`
     FROM asset 
-    WHERE assetID IN (SELECT AssetID FROM player_asset WHERE playerID = :playerID)
+    WHERE username = :username
 ");
-$assetsQuery->execute(['playerID' => $user['playerID']]);
+$assetsQuery->execute(['username' => $username]);
 $assets = $assetsQuery->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 $inventoryQuery = $conn->prepare("
@@ -168,10 +169,8 @@ if (isset($_POST['submit']) && isset($_FILES['avatar'])) {
     <h3>Your Assets:</h3>
     <?php foreach ($assets as $asset): ?>
         <div class="asset">
-            <p><strong>Asset ID:</strong> <?= htmlspecialchars($asset['assetID']) ?></p>
-            <p><strong>Type:</strong> <?= htmlspecialchars($asset['type']) ?></p>
-            <p><strong>Cost:</strong> <?= htmlspecialchars($asset['cost']) ?></p>
-            <p><strong>Availability:</strong> <?= htmlspecialchars($asset['availability']) ?></p>
+            <p><strong></strong> <?= htmlspecialchars($asset['assetname']) ?></p>
+            <p><strong>Value:</strong> <?= htmlspecialchars($asset['values']) ?></p>
         </div>
     <?php endforeach; ?>
 </div>
