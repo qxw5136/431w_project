@@ -1,0 +1,24 @@
+User Manuel:
+This .php based database tool is to help user check the game they played the friend they have and their inventories.
+It also has a feature which admin user can fully access all the date inside the datebase to fully customize.
+
+1. Environment required
+Highly recommend using windows OS and phpstorm ide.
+Required materials:
+A Desktop/laptop
+.php ide
+mysql workbench
+xampp or other similer app
+
+2. Set up
+Please import 431mysqldb folder into mysql database
+Please open db.php, change the variables inside to connect to your loca database.
+
+3. Userpage
+First time user is able to signup their account at the front page
+After login users can fully access the currect data they have and add friends by search their username
+
+4. Admin
+Admin can access all the registed users and edit their password or any other vairables
+
+
