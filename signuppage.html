@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Page</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+
+            if (error === 'usernameexists') {
+                document.getElementById('error-msg').textContent = 'Username has been used. Please choose another.';
+            }
+        };
+    </script>
+</head>
+<body>
+<h2>Signup Form</h2>
+<form action="signuppage.php" method="post">
+    Choose Username: <input type="text" name="username" required><br>
+    Choose Password: <input type="password" name="password" required><br>
+    <input type="submit" value="Sign Up">
+</form>
+<p id="error-msg" style="color: red;"></p>
+</body>
+</html>
